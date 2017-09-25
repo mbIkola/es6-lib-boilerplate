@@ -1,0 +1,67 @@
+{
+  "name": "insert-name-here",
+  "version": "1.0.0",
+  "description": "insert-desc-here",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha --compilers js:babel-core/register test/**/**.spec.js",
+    "test:coverage": "NODE_ENV=test nyc mocha ",
+    "test:watch": "npm run test -- --watch",
+    "lint": "NODE_ENV=test eslint src",
+    "compile": "rimraf lib/* &&  NODE_ENV=production babel src/ -d lib/ -s",
+    "compile:watch": "npm run compile -- -w",
+    "publish:prepare": "npm run compile "
+  },
+  "keywords": [
+    "packaging",
+    "lists",
+    "worker",
+    "excel",
+    "parser"
+  ],
+  "author": "Nickolay \"mbikola\" Kharchevin <kharchevyn@gmail.com>",
+  "license": "SEE LICENSE IN ./LICENSE",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.0",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-function-bind": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "eslint": "^4.7.2",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-google": "^0.9.1",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.5.3",
+    "nyc": "^11.2.1",
+    "sinon": "^3.3.0",
+    "sinon-chai": "^2.13.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "instrument": true,
+    "exclude": [ "test", "lib" ],
+    "include" : [ "src/**.js"],
+    "check-coverage": true,
+    "per-file": true,
+    "reporter": [ "text-lcov","text-summary"],
+    "all": true
+  }
+}
