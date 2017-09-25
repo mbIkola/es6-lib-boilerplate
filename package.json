@@ -13,11 +13,6 @@
     "publish:prepare": "npm run compile "
   },
   "keywords": [
-    "packaging",
-    "lists",
-    "worker",
-    "excel",
-    "parser"
   ],
   "author": "Nickolay \"mbikola\" Kharchevin <kharchevyn@gmail.com>",
   "license": "SEE LICENSE IN ./LICENSE",
