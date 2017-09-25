@@ -27,7 +27,7 @@ export default class Library extends EventEmitter {
              throw new Error('FileURI parameter is missing or unsuuported: has to be an URI or ReadableStream');
         }
 
-        return new PackingListParser();
+        return new Library();
     }
 
 
